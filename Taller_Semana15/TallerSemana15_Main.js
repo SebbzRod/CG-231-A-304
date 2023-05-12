@@ -35,19 +35,17 @@ camera.position.x = 0;
 const light = new THREE.AmbientLight(0x404040, 5);
 
 //Creacion de objeto
-// Crear polígono base
-var poligonoBase = crearPoligono(3, 0, 0, 1);
+var nVertices = 3
+var x0 = 0
+var z0 = 0
+var radio = 2
+var altura = 2
 
-// Crear poliedro a partir del polígono base
-var tetraedro = crearPoliedro(3, 1, 1.5);
-
-// Rotar el tetraedro para que se vea mejor
-tetraedro.rotation.x = Math.PI / 2;
+var poligonoBase = crearPoligono(nVertices, x0, z0, radio);
+var poliedroFinal = crearPoliedro(nVertices, x0, z0, radio, altura);
 
 // Agregar los polígonos al escenario
-scene.add(poligonoBase);
-scene.add(tetraedro);
-
+scene.add(poligonoBase,poliedroFinal);
 
 //Escena
 scene.add(arrowX, arrowY, arrowZ, gridHelperXZ, camera, light);
